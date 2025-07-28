@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deck</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    /* Card Slider */
+    .slide-container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .card-wrapper {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 10px;
+    }
+
+    .card-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card-wrapper {
+      scrollbar-width: none;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      width: 320px;
+      border-radius: 25px;
+      background-color: #fff;
+    }
+
+    .image-content, .card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 34px;
+    }
+
+    .image-content {
+      position: relative;
+      row-gap: 5px;
+      border-radius: 25px 25px 0 25px;
+    }
+
+    .card-image {
+      position: relative;
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+    }
+
+    .card-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #4070f4;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #707070;
+      text-align: center;
+    }
+
+    .button {
+      border: none;
+      font-size: 16px;
+      color: #fff;
+      padding: 8px 16px;
+      background-color: #4070f4;
+      border-radius: 6px;
+      margin: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: #265DF2;
+    }
+
+    .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #4070f4;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      border-radius: 25px 25px 0 25px;
+    }
+
+    /* Navigation Arrows */
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #4070f4;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    #prev {
+      left: -20px;
+    }
+
+    #next {
+      right: -20px;
+    }
+
+    @media (max-width: 768px) {
+      #prev, #next {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar bg-light">
+    <div class="container-fluid justify-content-center">
+      <a class="navbar-brand mx-auto">Minor Projects</a>
+    </div>
+  </nav>
+
+  <!-- Card Slider Section -->
+  <div class="slide-container">
+    <button class="nav-button" id="prev">&#10094;</button>
+    <button class="nav-button" id="next">&#10095;</button>
+
+    <div class="card-wrapper" id="cardWrapper">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <div class="card-image">
+            <img src="https://4kwallpapers.com/images/wallpapers/todo-list-nothing-2880x1800-10079.jpg" alt="user" class="card-img">
+          </div>
+        </div>
+        <div class="card-content">
+          <h2 class="name">Todo List</h2>
+          <p class="description">A minimal task manager with clean, interactive interface.</p>
+          <a href="https://todo-app-eight-gamma-13.vercel.app/" target="_blank" class="button">Live</a>
+
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <div class="card-image">
+            <img src="https://play-lh.googleusercontent.com/pwzzYDxifpLRuPJ-LDpUAMqU5fJd1o72l3WsFhW6yhyxTIXRFKrI8Q8wpJ4R6wPjU-k" alt="user" class="card-img">
+          </div>
+        </div>
+        <div class="card-content">
+          <h2 class="name">Pomodoro Timer</h2>
+          <p class="description">Boost focus with a timer that includes short and long breaks.</p>
+          <a href="https://pomopiloti02.vercel.app/" target="_blank" class="button">Live</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1705077031869-51b60754302a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2VhdGhlciUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D" alt="user" class="card-img">
+          </div>
+        </div>
+        <div class="card-content">
+          <h2 class="name">Weather App</h2>
+          <p class="description">Check weather conditions by city with a responsive UI.</p>
+          <button class="button">Live</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const wrapper = document.getElementById('cardWrapper');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    nextBtn.addEventListener('click', () => {
+      wrapper.scrollBy({ left: 340, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+      wrapper.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+
+    // Touch swipe detection
+    let startX;
+    wrapper.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    wrapper.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      if (diff > 50) wrapper.scrollBy({ left: 340, behavior: 'smooth' });
+      else if (diff < -50) wrapper.scrollBy({ left: -340, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
